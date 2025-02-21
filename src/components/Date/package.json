@@ -1,0 +1,9 @@
+{
+    "name": "date",
+    "version": "1.0.0",
+    "main": "Date.tsx",
+    "dependencies": {
+      "react": "^19.0.0"
+    }
+  }
+  

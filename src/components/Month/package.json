@@ -1,0 +1,8 @@
+{
+  "name": "month",
+  "version": "1.0.0",
+  "main": "Month.tsx",
+  "dependencies": {
+    "react": "^19.0.0"
+  }
+}

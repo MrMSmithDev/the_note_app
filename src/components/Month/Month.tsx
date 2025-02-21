@@ -1,0 +1,47 @@
+import Date from '@components/Date/Date';
+import { dayData } from '@utils/dateData';
+import daysInMonth from '@utils/daysInMonth';
+import firstDayInMonth from '@utils/firstDayInMonth';
+import React, { useEffect, useState } from 'react';
+import MonthType from 'src/types/MonthType';
+
+interface MonthProps {
+  month: MonthType;
+  year: number;
+}
+
+const Month: React.FC<MonthProps> = ({ month, year }) => {
+  const [days, setDays] = useState<{ date: number }[]>([{ date: 1 }]);
+  const [leadingSpace, setLeadingSpace] = useState<number>(0);
+
+  useEffect(() => {
+    const daysAmount = daysInMonth(month.num, year);
+    const firstDay = firstDayInMonth(month.num, year);
+
+    setLeadingSpace(firstDay);
+
+    const daysArr = Array.from({ length: daysAmount }, (_, i) => ({
+      date: i + 1,
+    }));
+    setDays(daysArr);
+  }, []);
+
+  return (
+    <div className="flex flex-col">
+      <h3 className="text-center font-bold font-quicksand text-sm select-none">{month.abbr}</h3>
+      <div className="grid grid-cols-7 gap-1 md:gap-2 my-3 font-quicksand">
+        {dayData.map((day, i) => (
+          <span key={`${day}-${i}`} className="text-xs font-bold select-none">{day}</span>
+        ))}
+        <div style={{ gridColumn: `span ${leadingSpace}` }} />
+        {days.map((day: { date: number }) => (
+          <div key={day.date} className="font-quicksand text-center">
+            <Date date={day.date} month={month} year={year} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Month;

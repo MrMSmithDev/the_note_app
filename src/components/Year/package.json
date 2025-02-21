@@ -1,0 +1,8 @@
+{
+    "name": "year",
+    "version": "1.0.0",
+    "main": "Year.tsx",
+    "dependencies": {
+      "react": "^19.0.0"
+    }
+}
