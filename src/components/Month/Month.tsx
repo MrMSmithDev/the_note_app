@@ -24,14 +24,18 @@ const Month: React.FC<MonthProps> = ({ month, year }) => {
       date: i + 1,
     }));
     setDays(daysArr);
-  }, []);
+  }, [year]);
 
   return (
     <div className="flex flex-col">
-      <h3 className="text-center font-bold font-quicksand text-sm select-none">{month.abbr}</h3>
+      <h3 className="text-center font-bold font-quicksand text-sm select-none">
+        {month.abbr}
+      </h3>
       <div className="grid grid-cols-7 gap-1 md:gap-2 my-3 font-quicksand">
         {dayData.map((day, i) => (
-          <span key={`${day}-${i}`} className="text-xs font-bold select-none">{day}</span>
+          <span key={`${day}-${i}`} className="text-xs font-bold select-none">
+            {day}
+          </span>
         ))}
         <div style={{ gridColumn: `span ${leadingSpace}` }} />
         {days.map((day: { date: number }) => (
