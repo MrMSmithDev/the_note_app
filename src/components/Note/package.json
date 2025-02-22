@@ -1,0 +1,8 @@
+{
+    "name": "note",
+    "version": "1.0.0",
+    "main": "Note.tsx",
+    "dependencies": {
+      "react": "^19.0.0"
+    }
+}
