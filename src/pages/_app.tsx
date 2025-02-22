@@ -4,6 +4,8 @@ import { AppProps } from 'next/app';
 import '@styles/globals.css';
 import '@styles/reset.css';
 import Head from 'next/head';
+import LocalStorageProvider from '@hooks/useLocalStorage';
+
 function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     document.body.classList.add('bg-background', 'dark:bg-background-dark');
@@ -19,10 +21,12 @@ function App({ Component, pageProps }: AppProps) {
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       </Head>
       <React.StrictMode>
-        <Component
-          className="bg-background dark:bg-background-dark"
-          {...pageProps}
-        />
+        <LocalStorageProvider>
+          <Component
+            className="bg-background dark:bg-background-dark"
+            {...pageProps}
+          />
+        </LocalStorageProvider>
       </React.StrictMode>
     </>
   );
