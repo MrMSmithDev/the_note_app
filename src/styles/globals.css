@@ -28,8 +28,8 @@
   --font-quicksand: 'quicksand';
   --font-kanit: 'kanit';
 
-  --color-background:rgb(248, 247, 247);
-  --color-background-dark:rgb(8, 21, 41);
+  --color-background: rgb(248, 247, 247);
+  --color-background-dark: rgb(8, 21, 41);
 
   --animate-jello: jello 0.5s infinite;
   @keyframes jello {
@@ -45,6 +45,28 @@
     }
     75% {
       transform: scale(0.95, 1.05);
+    }
+  }
+
+  --animate-fade-in: fade-in 0.2s 1;
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  --animate-slide-down: slide-down 0.2s 1 ease-in-out;
+  @keyframes slide-down {
+    from {
+      transform: translateY(-20px);
+    }
+
+    to {
+      transform: translateY(0);
     }
   }
 }
