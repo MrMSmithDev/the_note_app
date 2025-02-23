@@ -8,13 +8,11 @@ interface ChevronIconProps extends IconProps {
 
 const ChevronIcon: React.FC<ChevronIconProps> = ({
   className = '',
-  fill = '#000000',
   inverted = false,
 }) => {
   return (
     <svg
       className={`${className} ${inverted ? 'rotate-180' : ''}`}
-      fill="#000000"
       height="200px"
       width="200px"
       viewBox="0 0 32 32"
