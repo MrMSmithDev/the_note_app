@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-interface ModalProps {
+export interface ModalProps {
   children: React.ReactNode;
   closeModal: () => void;
   btnRef: React.RefObject<HTMLButtonElement>;

@@ -4,9 +4,8 @@ import React, { useEffect, useState } from 'react';
 import NoteType from 'src/types/Note';
 import { v4 as uuidV4 } from 'uuid';
 import formatDate from '@utils/formatDate';
-import { lightningCssTransform } from 'next/dist/build/swc/generated-native';
 
-interface NoteProps {
+export interface NoteProps {
   date: string;
 }
 

@@ -3,7 +3,7 @@ import Note from '@components/Note';
 import React, { useRef, useState } from 'react';
 import MonthType from 'src/types/MonthType';
 
-interface DateProps {
+export interface DateProps {
   date: number;
   month: MonthType;
   year: number;

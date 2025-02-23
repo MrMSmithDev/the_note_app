@@ -1,4 +1,4 @@
-import Date from '@components/Date/Date';
+import Date from '@components/Date';
 import { dayData } from '@utils/dateData';
 import daysInMonth from '@utils/daysInMonth';
 import firstDayInMonth from '@utils/firstDayInMonth';
