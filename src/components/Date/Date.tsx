@@ -28,7 +28,7 @@ const Date: React.FC<DateProps> = ({ date, month, year }) => {
         className="cursor-pointer select-none w-full rounded"
         onClick={openNote}
       >
-        <span className="text-sm">{date}</span>
+        <span className="text-sm dark:text-gray-400">{date}</span>
       </button>
       {showModal ? (
         <Modal closeModal={() => setShowModal(false)} btnRef={ref}>

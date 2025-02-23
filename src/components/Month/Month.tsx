@@ -28,12 +28,12 @@ const Month: React.FC<MonthProps> = ({ month, year }) => {
 
   return (
     <div className="flex flex-col">
-      <h3 className="text-center font-bold font-quicksand text-sm select-none">
+      <h3 className="text-center font-bold font-quicksand text-sm select-none dark:text-gray-100">
         {month.abbr}
       </h3>
       <div className="grid grid-cols-7 gap-1 md:gap-2 my-3 font-quicksand">
         {dayData.map((day, i) => (
-          <span key={`${day}-${i}`} className="text-xs font-bold select-none">
+          <span key={`${day}-${i}`} className="text-xs font-bold select-none dark:text-gray-200">
             {day}
           </span>
         ))}

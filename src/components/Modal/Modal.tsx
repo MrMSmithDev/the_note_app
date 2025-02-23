@@ -34,7 +34,7 @@ const Modal: React.FC<ModalProps> = ({ btnRef, closeModal, children }) => {
   });
 
   return (
-    <div className="fixed top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.3)] flex justify-center items-center">
+    <div className="fixed top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.3)] flex justify-center items-center animate-fade-in">
       <div ref={ref} className="modal-children">
         {children}
       </div>
