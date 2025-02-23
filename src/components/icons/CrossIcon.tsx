@@ -1,7 +1,7 @@
 import React from 'react';
+import IconProps from 'src/types/IconProps';
 
-interface CrossIconProps {
-  className?: string;
+interface CrossIconProps extends IconProps {
   fill?: string;
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
+import IconProps from 'src/types/IconProps';
 
-interface ChevronIconProps {
-  className?: string;
+interface ChevronIconProps extends IconProps {
   fill?: string;
   inverted?: boolean;
 }
