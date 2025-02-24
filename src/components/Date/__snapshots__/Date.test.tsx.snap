@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Date component renders correctly to match snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <button
+      class="cursor-pointer select-none w-full rounded"
+    >
+      <span
+        class="text-sm dark:text-gray-400"
+      >
+        3
+      </span>
+    </button>
+  </div>
+</DocumentFragment>
+`;

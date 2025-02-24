@@ -20,6 +20,12 @@ describe('Month component', () => {
     (firstDayInMonth as jest.Mock).mockReturnValue(3);
   });
 
+  it('renders correctly to match snapshot', () => {
+    const { asFragment } = render(<Month month={mockMonth} year={mockYear} />);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
   it('renders correct month abbreviation', () => {
     render(<Month month={mockMonth} year={mockYear} />);
 

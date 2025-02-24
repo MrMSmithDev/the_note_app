@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Note component renders correctly to match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="bg-background dark:bg-background-dark rounded shadow-md p-5 min-w-[300px] w-min animate-slide-down"
+  >
+    <h4
+      class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600 font-bold font-kanit"
+    >
+      5th JAN 2025
+    </h4>
+    <ul
+      class="my-3 flex flex-col gap-2"
+    >
+      <li
+        class="text-center italic text-gray-400"
+      >
+        No Notes
+      </li>
+    </ul>
+    <form
+      class="flex gap-2 flex-col md:flex-row justify-center mt-2"
+    >
+      <label
+        class="sr-only"
+        for="newNote"
+      >
+        New Note
+      </label>
+      <input
+        class="p-1 border-2 border-gray-200 dark:border-gray-800 focus:outline-gray-400 dark:focus:outline-gray-600 text-sm dark:text-gray-200 tracking-wide min-w-[300px]"
+        id="newNote"
+        name="newNote"
+        placeholder="New Note"
+        type="text"
+        value=""
+      />
+      <button
+        class="mx-auto w-max bg-blue-500 py-1 px-4 rounded-md font-quicksand font-bold text-gray-100 cursor-pointer hover:animate-jello"
+      >
+        <span>
+          Add Note
+        </span>
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;

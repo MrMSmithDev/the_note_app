@@ -16,6 +16,12 @@ describe('Note component', () => {
     jest.clearAllMocks();
   });
 
+  it('renders correctly to match snapshot', () => {
+    const { asFragment } = render(<Note date="2025-01-5" />);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
   it('renders correctly with date', () => {
     render(<Note date="2025-02-1" />);
     expect(screen.getByText(formatDate('2025-02-1'))).toBeInTheDocument();

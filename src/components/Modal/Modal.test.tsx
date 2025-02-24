@@ -12,6 +12,16 @@ describe('Modal component', () => {
     btnRef = { current: document.createElement('button') };
   });
 
+  it('renders correctly to match snapshot', () => {
+    const { asFragment } = render(
+      <Modal closeModal={closeModal} btnRef={btnRef}>
+        {mockChild}
+      </Modal>
+    );
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
   it('renders children correctly', () => {
     render(
       <Modal closeModal={closeModal} btnRef={btnRef}>

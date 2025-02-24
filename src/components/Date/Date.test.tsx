@@ -9,6 +9,14 @@ describe('Date component', () => {
     jest.clearAllMocks();
   });
 
+  it('renders correctly to match snapshot', () => {
+    const { asFragment } = render(
+      <Date date={3} month={{ abbr: 'MAY', num: 5 }} year={2025} />
+    );
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
   it('renders the date button correctly', () => {
     render(<Date date={5} month={{ abbr: 'FEB', num: 2 }} year={2025} />);
 

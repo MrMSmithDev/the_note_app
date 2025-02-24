@@ -15,6 +15,12 @@ describe('Calendar component', () => {
     jest.clearAllMocks();
   });
 
+  it('renders correctly to match snapshot', () => {
+    const { asFragment } = render(<Calendar />);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
   it('renders with the current year initially', () => {
     const currentYear = new Date().getFullYear();
 

@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Year component renders correctly to match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-3 h-1/2 mt-10"
+  >
+    <div
+      data-testid="mock-month"
+    >
+      JAN
+    </div>
+    <div
+      data-testid="mock-month"
+    >
+      FEB
+    </div>
+    <div
+      data-testid="mock-month"
+    >
+      MAR
+    </div>
+    <div
+      data-testid="mock-month"
+    >
+      APR
+    </div>
+    <div
+      data-testid="mock-month"
+    >
+      MAY
+    </div>
+    <div
+      data-testid="mock-month"
+    >
+      JUN
+    </div>
+    <div
+      data-testid="mock-month"
+    >
+      JUL
+    </div>
+    <div
+      data-testid="mock-month"
+    >
+      AUG
+    </div>
+    <div
+      data-testid="mock-month"
+    >
+      SEP
+    </div>
+    <div
+      data-testid="mock-month"
+    >
+      OCT
+    </div>
+    <div
+      data-testid="mock-month"
+    >
+      NOV
+    </div>
+    <div
+      data-testid="mock-month"
+    >
+      DEC
+    </div>
+  </div>
+</DocumentFragment>
+`;

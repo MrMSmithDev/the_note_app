@@ -11,6 +11,12 @@ describe('Year component', () => {
     jest.resetAllMocks();
   });
 
+  it('renders correctly to match snapshot', () => {
+    const { asFragment } = render(<Year year={mockYear} />);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
   it('renders the month labels correctly', () => {
     render(<Year year={mockYear} />);
 
