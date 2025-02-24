@@ -22,7 +22,6 @@ const Calendar: React.FC = () => {
   }
 
   useEffect(() => {
-    console.log('Loading year');
     if (token) {
     } else {
       loadYear(fullYear);
@@ -38,7 +37,11 @@ const Calendar: React.FC = () => {
           value={-1}
           disabled={fullYear <= 2010}
         >
-          <ChevronIcon className="h-4 w-4 fill-[#0a0a0a] dark:fill-[#fff]" inverted={true} />
+          <span className="sr-only">previous</span>
+          <ChevronIcon
+            className="h-4 w-4 fill-[#0a0a0a] dark:fill-[#fff]"
+            inverted={true}
+          />
         </button>
         <AnimatePresence mode="wait">
           <motion.h1
@@ -58,6 +61,7 @@ const Calendar: React.FC = () => {
           value={1}
           disabled={fullYear >= 2030}
         >
+          <span className="sr-only">next</span>
           <ChevronIcon className="h-4 w-4 fill-[#0a0a0a] dark:fill-[#fff]" />
         </button>
       </nav>

@@ -3,7 +3,7 @@ import { monthsData } from '@utils/dateData';
 import MonthType from 'src/types/MonthType';
 import Month from '@components/Month';
 
-interface YearProps {
+export interface YearProps {
   year: number;
 }
 

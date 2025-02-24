@@ -19,14 +19,11 @@ const Note: React.FC<NoteProps> = ({ date }) => {
 
   useEffect(() => {
     async function loadData() {
-      console.log('loading note data');
-
       // Check if using auth
       if (token) {
         console.log('token');
       } else {
         const result = retrieveNotesFromLocal(date);
-        console.log('Retrieve notes');
         setNoteData(result);
       }
     }

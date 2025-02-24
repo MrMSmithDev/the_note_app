@@ -5,7 +5,7 @@ import firstDayInMonth from '@utils/firstDayInMonth';
 import React, { useEffect, useState } from 'react';
 import MonthType from 'src/types/MonthType';
 
-interface MonthProps {
+export interface MonthProps {
   month: MonthType;
   year: number;
 }
@@ -37,7 +37,7 @@ const Month: React.FC<MonthProps> = ({ month, year }) => {
             {day}
           </span>
         ))}
-        <div style={{ gridColumn: `span ${leadingSpace}` }} />
+        <div role="presentation" style={{ gridColumn: `span ${leadingSpace}` }} />
         {days.map((day: { date: number }) => (
           <div key={day.date} className="font-quicksand text-center">
             <Date date={day.date} month={month} year={year} />
