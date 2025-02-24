@@ -4,6 +4,7 @@ import IconProps from 'src/types/IconProps';
 const LightModeIcon: React.FC<IconProps> = ({ className }) => {
   return (
     <svg
+      data-testid="light-mode-icon"
       className={className}
       xmlns="http://www.w3.org/2000/svg"
       height="34px"
