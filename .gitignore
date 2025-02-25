@@ -2,3 +2,6 @@
 /.next/
 /.vscode/
 /.qodo/
+
+.env
+.env.public
