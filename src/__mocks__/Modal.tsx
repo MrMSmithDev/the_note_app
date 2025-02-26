@@ -1,9 +1,12 @@
 import React from 'react';
 
-interface MockModalProps {
-  children: React.ReactNode;
-}
+import { ModalProps } from '@components/Modal';
 
-export default function Modal({ children }: MockModalProps) {
-  return <div data-testid="mock-modal">{children}</div>;
+export default function Modal({ children, closeModal }: ModalProps) {
+  return (
+    <div data-testid="mock-modal">
+      {children}
+      <button onClick={closeModal}>close modal</button>
+    </div>
+  );
 }
