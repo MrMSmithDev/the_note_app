@@ -12,6 +12,7 @@ const ChevronIcon: React.FC<ChevronIconProps> = ({
 }) => {
   return (
     <svg
+      data-testid="chevron-icon"
       className={`${className} ${inverted ? 'rotate-180' : ''}`}
       height="200px"
       width="200px"
