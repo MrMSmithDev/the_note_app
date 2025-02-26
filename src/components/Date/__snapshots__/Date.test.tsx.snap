@@ -4,7 +4,7 @@ exports[`Date component renders correctly to match snapshot 1`] = `
 <DocumentFragment>
   <div>
     <button
-      class="cursor-pointer select-none w-full rounded"
+      class="cursor-pointer select-none w-full rounded hover:bg-gray-200 dark:hover:bg-gray-600"
     >
       <span
         class="text-sm dark:text-gray-400"

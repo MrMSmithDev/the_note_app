@@ -3,7 +3,7 @@
 exports[`Modal component renders correctly to match snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="fixed top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.3)] flex justify-center items-center animate-fade-in"
+    class="p-1 fixed top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.3)] flex justify-center items-center animate-fade-in"
   >
     <div
       class="modal-children"
