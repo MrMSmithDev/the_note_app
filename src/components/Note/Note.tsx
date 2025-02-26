@@ -97,7 +97,7 @@ const Note: React.FC<NoteProps> = ({ date }) => {
         />
         <button
           onClick={createNote}
-          className="mx-auto w-max bg-blue-500 py-1 px-4 rounded-md font-quicksand font-bold text-gray-100 cursor-pointer hover:animate-jello"
+          className="py-2 px-4 rounded-md font-quicksand font-bold text-gray-100 mr-auto bg-linear-to-tr from-blue-400 to-blue-600 w-full md:w-max cursor-pointer"
         >
           <span>Add Note</span>
         </button>

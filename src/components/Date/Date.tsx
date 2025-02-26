@@ -25,7 +25,7 @@ const Date: React.FC<DateProps> = ({ date, month, year }) => {
     <div>
       <button
         ref={ref}
-        className="cursor-pointer select-none w-full rounded"
+        className="cursor-pointer select-none w-full rounded hover:bg-gray-200 dark:hover:bg-gray-600"
         onClick={openNote}
       >
         <span className="text-sm dark:text-gray-400">{date}</span>
