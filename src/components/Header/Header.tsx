@@ -1,4 +1,4 @@
-import Modal from '@components/Modal/Modal';
+import Modal from '@components/Modal';
 import SignInForm from '@components/SignInForm';
 import SignUpForm from '@components/SignUpForm';
 import ThemeToggle from '@components/ThemeToggle';
@@ -30,9 +30,9 @@ const Header: React.FC = () => {
           </Modal>
         )}
         {signUpFormActive && !signInFormActive && (
-          <Modal closeModal={() => setSignInFormActive(false)} btnRef={ref}>
+          <Modal closeModal={() => setSignUpFormActive(false)} btnRef={ref}>
             <SignUpForm
-              closeForm={() => setSignInFormActive(false)}
+              closeForm={() => setSignUpFormActive(false)}
               toggleForm={toggleForm}
             />
           </Modal>
