@@ -11,6 +11,12 @@ describe('Header component', () => {
     jest.clearAllMocks();
   });
 
+  it('renders to match snapshot', () => {
+    const { asFragment } = render(<Header />);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
   it('renders the site name', () => {
     render(<Header />);
 
