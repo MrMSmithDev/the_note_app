@@ -2,14 +2,17 @@ import { useState } from 'react';
 
 type ThemeType = 'light' | 'dark';
 
-const useTheme = (): [string, () => void] => {
+const useTheme = (): [string, () => void, boolean] => {
+  const [themeLoading, setThemeLoading] = useState<boolean>(true);
   const [theme, setTheme] = useState<ThemeType>(() => {
     if (typeof window !== 'undefined') {
+      setThemeLoading(false);
       return (localStorage.getItem('theme') ||
         (window.matchMedia('(prefers-color-scheme: dark)').matches
           ? 'dark'
           : 'light')) as ThemeType;
     }
+    setThemeLoading(false);
     return 'light';
   });
 
@@ -23,7 +26,7 @@ const useTheme = (): [string, () => void] => {
     localStorage.setItem('theme', newTheme);
   }
 
-  return [theme, toggleTheme];
+  return [theme, toggleTheme, themeLoading];
 };
 
 export default useTheme;
