@@ -1,0 +1,8 @@
+{
+  "name": "sign-in-form",
+  "version": "1.0.0",
+  "main": "SignInForm.tsx",
+  "dependencies": {
+    "react": "^19.0.0"
+  }
+}
