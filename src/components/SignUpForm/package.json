@@ -1,0 +1,8 @@
+{
+  "name": "sign-up-form",
+  "version": "1.0.0",
+  "main": "SignUpForm.tsx",
+  "dependencies": {
+    "react": "^19.0.0"
+  }
+}
