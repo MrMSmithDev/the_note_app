@@ -1,6 +1,7 @@
 import { default as ChevronIcon } from './ChevronIcon';
 import { default as CrossIcon } from './CrossIcon';
 import { default as DarkModeIcon } from './DarkModeIcon';
+import { default as EditIcon } from './EditIcon';
 import { default as EmailIcon } from './EmailIcon';
 import { default as HidePasswordIcon } from './HidePasswordIcon';
 import { default as LightModeIcon } from './LightModeIcon';
@@ -11,6 +12,7 @@ export {
   ChevronIcon,
   CrossIcon,
   DarkModeIcon,
+  EditIcon,
   EmailIcon,
   HidePasswordIcon,
   LightModeIcon,
