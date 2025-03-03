@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInForm component renders to match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="mock-sign-in-form"
+  >
+    <button>
+      close sign in
+    </button>
+    <button>
+      switch to sign up form
+    </button>
+  </div>
+</DocumentFragment>
+`;

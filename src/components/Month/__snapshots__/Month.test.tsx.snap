@@ -3,48 +3,48 @@
 exports[`Month component renders correctly to match snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="flex flex-col"
+    class="flex flex-col mb-2 md:mb-0"
   >
     <h3
-      class="text-center font-bold font-quicksand text-sm select-none dark:text-gray-100"
+      class="text-center font-bold font-quicksand text-md md:text-sm select-none dark:text-gray-100"
     >
       FEB
     </h3>
     <div
-      class="grid grid-cols-7 gap-1 md:gap-2 my-3 font-quicksand"
+      class="grid grid-cols-7 gap-2 my-3 font-quicksand"
     >
       <span
-        class="text-xs font-bold select-none dark:text-gray-200"
+        class="text-md md:text-xs font-bold select-none dark:text-gray-200 text-center"
       >
         S
       </span>
       <span
-        class="text-xs font-bold select-none dark:text-gray-200"
+        class="text-md md:text-xs font-bold select-none dark:text-gray-200 text-center"
       >
         M
       </span>
       <span
-        class="text-xs font-bold select-none dark:text-gray-200"
+        class="text-md md:text-xs font-bold select-none dark:text-gray-200 text-center"
       >
         T
       </span>
       <span
-        class="text-xs font-bold select-none dark:text-gray-200"
+        class="text-md md:text-xs font-bold select-none dark:text-gray-200 text-center"
       >
         W
       </span>
       <span
-        class="text-xs font-bold select-none dark:text-gray-200"
+        class="text-md md:text-xs font-bold select-none dark:text-gray-200 text-center"
       >
         T
       </span>
       <span
-        class="text-xs font-bold select-none dark:text-gray-200"
+        class="text-md md:text-xs font-bold select-none dark:text-gray-200 text-center"
       >
         F
       </span>
       <span
-        class="text-xs font-bold select-none dark:text-gray-200"
+        class="text-md md:text-xs font-bold select-none dark:text-gray-200 text-center"
       >
         S
       </span>

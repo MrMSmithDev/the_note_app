@@ -7,7 +7,7 @@ exports[`Date component renders correctly to match snapshot 1`] = `
       class="cursor-pointer select-none w-full rounded hover:bg-gray-200 dark:hover:bg-gray-600"
     >
       <span
-        class="text-sm dark:text-gray-400"
+        class="text-md md:text-sm dark:text-gray-400"
       >
         3
       </span>
