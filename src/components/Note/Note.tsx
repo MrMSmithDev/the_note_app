@@ -1,4 +1,4 @@
-import CrossIcon from '@components/icons/CrossIcon';
+import { CrossIcon, EditIcon } from '@components/icons';
 import { useLocalStorage } from '@hooks/useLocalStorage';
 import React, { useEffect, useState } from 'react';
 import NoteType from 'src/types/Note';
@@ -12,6 +12,10 @@ export interface NoteProps {
 const Note: React.FC<NoteProps> = ({ date }) => {
   const [currentNewNote, setCurrentNewNote] = useState<string>('');
   const [noteData, setNoteData] = useState<NoteType[]>([]);
+
+  const [editingNote, setEditingNote] = useState<string | null>(null);
+  const [editValue, setEditValue] = useState<string>('');
+
   const { saveNoteToLocal, removeNoteFromLocal, retrieveNotesFromLocal } =
     useLocalStorage();
 
@@ -30,6 +34,15 @@ const Note: React.FC<NoteProps> = ({ date }) => {
 
     void loadData();
   }, [date]);
+
+  useEffect(() => {
+    const previousNote = noteData.filter((note) => note.id === editingNote)[0];
+    if (previousNote) {
+      setEditValue(previousNote.data);
+    } else {
+      setEditValue('');
+    }
+  }, [editingNote]);
 
   function handleNewNoteChange(e: React.ChangeEvent<HTMLInputElement>) {
     setCurrentNewNote(e.currentTarget.value);
@@ -51,6 +64,28 @@ const Note: React.FC<NoteProps> = ({ date }) => {
     setCurrentNewNote('');
   }
 
+  function handleEditChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
+    setEditValue(e.currentTarget.value);
+  }
+
+  function updateNote(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+
+    setEditingNote(e.currentTarget.value);
+  }
+
+  function cancelUpdateNote(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    setEditingNote(null);
+  }
+
+  function submitUpdateNote(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+
+    console.log(`${editingNote}: ${editValue}`);
+    setEditingNote(null);
+  }
+
   async function removeNoteData(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
 
@@ -65,19 +100,55 @@ const Note: React.FC<NoteProps> = ({ date }) => {
         {formatDate(date)}
       </h4>
       <ul className="my-3 flex flex-col gap-2">
-        {noteData.map((note: NoteType) => (
-          <li key={note.id} className="flex items-center">
-            <p className="text-left dark:text-gray-200">{note.data}</p>
-            <button
-              onClick={removeNoteData}
-              className="ml-auto pl-2 cursor-pointer"
-              value={note.id}
-            >
-              <span className="sr-only">Delete Note</span>
-              <CrossIcon className="h-3 w-3" fill="#c30010" />
-            </button>
-          </li>
-        ))}
+        {noteData.map((note: NoteType) =>
+          note.id === editingNote ? (
+            <li key={note.id}>
+              <div className="flex flex-col md:flex-row items-center gap-1">
+                <textarea
+                  className="p-1 border-2 border-gray-200 dark:border-gray-800 focus:outline-gray-400 dark:focus:outline-gray-600 text-sm dark:text-gray-200 tracking-wide min-w-[300px] resize-none"
+                  rows={1}
+                  value={editValue}
+                  onChange={handleEditChange}
+                  placeholder="Note..."
+                />
+                <div className="flex gap-1 w-full">
+                  <button
+                    onClick={submitUpdateNote}
+                    className="py-2 px-4 rounded-md font-quicksand font-bold text-gray-100 mr-auto bg-linear-to-tr from-blue-400 to-blue-600 w-full md:w-max cursor-pointer disabled:opacity-50"
+                  >
+                    <span>Update</span>
+                  </button>
+                  <button
+                    onClick={cancelUpdateNote}
+                    className="py-2 px-4 rounded-md font-quicksand font-bold text-gray-100 mr-auto bg-linear-to-tr from-red-400 to-red-600 w-full md:w-max cursor-pointer disabled:opacity-50"
+                  >
+                    <span>Cancel</span>
+                  </button>
+                </div>
+              </div>
+            </li>
+          ) : (
+            <li key={note.id} className="flex items-center gap-1">
+              <p className="text-left dark:text-gray-200">{note.data}</p>
+              <button
+                onClick={updateNote}
+                className="ml-auto pl-2 cursor-pointer"
+                value={note.id}
+              >
+                <span className="sr-only">Edit Note</span>
+                <EditIcon className="h-5 w-5" />
+              </button>
+              <button
+                onClick={removeNoteData}
+                className="pl-2 cursor-pointer"
+                value={note.id}
+              >
+                <span className="sr-only">Delete Note</span>
+                <CrossIcon className="h-3 w-3" fill="#c30010" />
+              </button>
+            </li>
+          )
+        )}
         {noteData.length <= 0 ? (
           <li className="text-center italic text-gray-400">No Notes</li>
         ) : null}
@@ -97,7 +168,8 @@ const Note: React.FC<NoteProps> = ({ date }) => {
         />
         <button
           onClick={createNote}
-          className="py-2 px-4 rounded-md font-quicksand font-bold text-gray-100 mr-auto bg-linear-to-tr from-blue-400 to-blue-600 w-full md:w-max cursor-pointer"
+          className="py-2 px-4 rounded-md font-quicksand font-bold text-gray-100 mr-auto bg-linear-to-tr from-blue-400 to-blue-600 w-full md:w-max cursor-pointer disabled:opacity-50"
+          disabled={!!editingNote}
         >
           <span>Add Note</span>
         </button>
