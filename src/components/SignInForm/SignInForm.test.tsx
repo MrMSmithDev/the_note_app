@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import SignInForm from '@__mocks__/SignInForm';
+import SignInForm from './SignInForm';
 
 describe('SignInForm component', () => {
   const mockCloseForm = jest.fn();
@@ -22,13 +22,13 @@ describe('SignInForm component', () => {
       <SignInForm closeForm={mockCloseForm} toggleForm={mockToggleForm} />
     );
 
-    expect(screen.getAllByText('Log in').length).toHaveValue(2);
+    expect(screen.getAllByText('Log in').length).toBe(2);
     expect(screen.getByPlaceholderText('Username')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('password')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Password')).toBeInTheDocument();
     expect(screen.getByText("Don't have an account?")).toBeInTheDocument();
     expect(screen.getByText('Sign up')).toBeInTheDocument();
     expect(screen.getByTestId('user-icon')).toBeInTheDocument();
-    expect(screen.getByTestId('show-password-icon')).toBeInTheDocument();
+    expect(screen.getByTestId('hide-password-icon')).toBeInTheDocument();
   });
 
   it('updates username and password fields', () => {
@@ -46,7 +46,7 @@ describe('SignInForm component', () => {
     fireEvent.change(usernameInput, { target: { value: 'test_username' } });
     fireEvent.change(passwordInput, { target: { value: 'test_password' } });
 
-    expect(usernameInput.value).toBe('test_password');
+    expect(usernameInput.value).toBe('test_username');
     expect(passwordInput.value).toBe('test_password');
   });
 
