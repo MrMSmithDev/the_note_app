@@ -49,7 +49,7 @@ const Note: React.FC<NoteProps> = ({ date }) => {
   }, [editingNote]);
 
   function handleNewNoteChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setCurrentNewNote(e.currentTarget.value);
+    if (!editingNote) setCurrentNewNote(e.currentTarget.value);
   }
 
   function createNote(e: React.MouseEvent<HTMLButtonElement>) {
@@ -108,7 +108,7 @@ const Note: React.FC<NoteProps> = ({ date }) => {
   }
 
   return (
-    <div className="bg-background dark:bg-background-dark rounded shadow-md p-5 min-w-[300px] w-min animate-slide-down">
+    <div className="bg-background dark:bg-background-dark rounded shadow-md p-5 max-h-[80lvh] min-w-[300px] w-min animate-slide-down">
       <h4 className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600 font-bold font-kanit">
         {formatDate(date)}
       </h4>
