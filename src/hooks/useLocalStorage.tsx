@@ -8,6 +8,7 @@ interface LocalStorageContextType {
   removeNoteFromLocal: (dateString: string, noteId: string) => void;
   loadYear: (year: number) => void;
   retrieveNotesFromLocal: (dateString: string) => Note[];
+  updateNoteToLocal: (dateString: string, newNote: Note) => void;
 }
 
 interface LocalStorageProviderProps {
@@ -39,6 +40,32 @@ const LocalStorageProvider: React.FC<LocalStorageProviderProps> = ({
       const updatedMonthData = {
         ...prev[month],
         [date]: [...(prev[month]?.[date] || []), note],
+      };
+
+      const updatedYearData = {
+        ...prev,
+        [month]: updatedMonthData,
+      };
+
+      localStorage.setItem(yearStr, JSON.stringify(updatedYearData));
+
+      return updatedYearData;
+    });
+  }
+
+  function updateNoteToLocal(dateString: string, newNote: Note) {
+    const [yearStr, monthStr, dateStr] = dateString.split('-');
+    const month = parseInt(monthStr, 10);
+    const date = parseInt(dateStr, 10);
+
+    setCurrentData((prev) => {
+      const updatedMonthData = {
+        ...prev[month],
+        [date]: prev[month]?.[date]
+          ? prev[month][date].map((note) =>
+              note.id === newNote.id ? newNote : note
+            )
+          : [newNote],
       };
 
       const updatedYearData = {
@@ -90,6 +117,7 @@ const LocalStorageProvider: React.FC<LocalStorageProviderProps> = ({
         removeNoteFromLocal,
         loadYear,
         retrieveNotesFromLocal,
+        updateNoteToLocal,
       }}
     >
       {children}

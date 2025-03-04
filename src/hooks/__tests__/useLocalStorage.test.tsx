@@ -121,4 +121,66 @@ describe('useLocalStorage hook', () => {
 
     expect(notes).toEqual([mockNote]);
   });
+
+  it('updates a note to localStorage when it is the only note set', () => {
+    localStorage.setItem('2025', JSON.stringify({ 1: { 1: [mockNote] } }));
+
+    const { result } = renderHook(() => useLocalStorage(), {
+      wrapper: LocalStorageProvider,
+    });
+
+    const updatedNote = { id: '1', data: 'Updated Note' };
+
+    act(() => {
+      result.current.loadYear(2025);
+      result.current.updateNoteToLocal('2025-01-1', updatedNote);
+    });
+
+    expect(result.current.currentData).toEqual({ 1: { 1: [updatedNote] } });
+    expect(localStorage.setItem).toHaveBeenLastCalledWith(
+      '2025',
+      JSON.stringify({ 1: { 1: [updatedNote] } })
+    );
+  });
+
+  it('updates a note to localStorage when more than one note is set', () => {
+    localStorage.setItem(
+      '2025',
+      JSON.stringify({
+        3: { 5: [mockNote, { id: '2', data: 'Another Note' }] },
+      })
+    );
+
+    const { result } = renderHook(() => useLocalStorage(), {
+      wrapper: LocalStorageProvider,
+    });
+
+    const updatedNote = { id: '1', data: 'Updated Note' };
+
+    act(() => {
+      result.current.loadYear(2025);
+      result.current.updateNoteToLocal('2025-03-5', updatedNote);
+    });
+
+    expect(result.current.currentData).toEqual({
+      3: {
+        5: [
+          { id: '1', data: 'Updated Note' },
+          { id: '2', data: 'Another Note' },
+        ],
+      },
+    });
+
+    expect(localStorage.setItem).toHaveBeenLastCalledWith(
+      '2025',
+      JSON.stringify({
+        3: {
+          5: [
+            { id: '1', data: 'Updated Note' },
+            { id: '2', data: 'Another Note' },
+          ],
+        },
+      })
+    );
+  });
 });
