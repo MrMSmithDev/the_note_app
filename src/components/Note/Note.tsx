@@ -16,8 +16,12 @@ const Note: React.FC<NoteProps> = ({ date }) => {
   const [editingNote, setEditingNote] = useState<string | null>(null);
   const [editValue, setEditValue] = useState<string>('');
 
-  const { saveNoteToLocal, removeNoteFromLocal, retrieveNotesFromLocal } =
-    useLocalStorage();
+  const {
+    saveNoteToLocal,
+    removeNoteFromLocal,
+    retrieveNotesFromLocal,
+    updateNoteToLocal,
+  } = useLocalStorage();
 
   const token = null;
 
@@ -51,6 +55,8 @@ const Note: React.FC<NoteProps> = ({ date }) => {
   function createNote(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
 
+    if (currentNewNote.length <= 0) return;
+
     const newNote: NoteType = { id: uuidV4(), data: currentNewNote };
     if (token) {
       setTimeout(() => {
@@ -82,8 +88,15 @@ const Note: React.FC<NoteProps> = ({ date }) => {
   function submitUpdateNote(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
 
-    console.log(`${editingNote}: ${editValue}`);
+    const newNote = { id: editingNote, data: editValue };
+
+    setNoteData((prev) =>
+      prev.map((note) => (note.id === newNote.id ? newNote : note))
+    );
+    updateNoteToLocal(date, newNote);
+
     setEditingNote(null);
+    setEditValue('');
   }
 
   async function removeNoteData(e: React.MouseEvent<HTMLButtonElement>) {
@@ -104,7 +117,12 @@ const Note: React.FC<NoteProps> = ({ date }) => {
           note.id === editingNote ? (
             <li key={note.id}>
               <div className="flex flex-col md:flex-row items-center gap-1">
+                <label htmlFor="note-to-update" className="sr-only">
+                  Updated note
+                </label>
                 <textarea
+                  id="note-to-update"
+                  data-testid="note-to-update"
                   className="p-1 border-2 border-gray-200 dark:border-gray-800 focus:outline-gray-400 dark:focus:outline-gray-600 text-sm dark:text-gray-200 tracking-wide min-w-[300px] resize-none"
                   rows={1}
                   value={editValue}
