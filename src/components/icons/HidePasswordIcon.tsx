@@ -10,7 +10,7 @@ const HidePasswordIcon: React.FC<IconProps> = ({ className = '' }) => {
       fill="none"
     >
       <g strokeWidth="0"></g>
-      <g stroke-linecap="round" stroke-linejoin="round"></g>
+      <g strokeLinecap="round" strokeLinejoin="round"></g>
       <g>
         <path
           fillRule="evenodd"
