@@ -94,6 +94,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ closeForm, toggleForm }) => {
           onClick={toggleRevealPassword}
           className="absolute h-5 w-5 top-2 left-2 cursor-pointer"
         >
+          <span className="sr-only">show password</span>
           {revealPassword ? <ShowPasswordIcon /> : <HidePasswordIcon />}
         </button>
         <label className="sr-only" htmlFor="password"></label>
@@ -112,6 +113,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ closeForm, toggleForm }) => {
           onClick={toggleRevealRepeatPassword}
           className="absolute h-5 w-5 top-2 left-2 cursor-pointer"
         >
+          <span className="sr-only">show repeat password</span>
           {revealRepeatPassword ? <ShowPasswordIcon /> : <HidePasswordIcon />}
         </button>
         <label className="sr-only" htmlFor="repeatPassword"></label>
@@ -130,9 +132,8 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ closeForm, toggleForm }) => {
         className="py-2 px-4 rounded-md font-quicksand font-bold text-gray-100 mr-auto bg-linear-to-tr from-blue-400 to-blue-600 w-full cursor-pointer"
         onClick={submitForm}
       >
-        Log in
+        Sign up
       </button>
-      <div></div>
       <div className="text-center">
         <p className="text-gray-800 dark:text-gray-200 text-xs">
           Already have an account?
