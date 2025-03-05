@@ -1,4 +1,4 @@
-import { renderHook, act } from '@testing-library/react';
+import { renderHook, act, waitFor } from '@testing-library/react';
 import useTheme from '@hooks/useTheme';
 
 describe('useTheme hook', () => {
@@ -14,13 +14,19 @@ describe('useTheme hook', () => {
     jest.clearAllMocks();
   });
 
-  it('sets the theme based on localStorage or prefers-color-scheme', () => {
+  it('sets the theme based on localStorage or prefers-color-scheme', async () => {
+    Object.defineProperty(window, 'matchMedia', {
+      value: jest.fn(() => ({ matches: false })),
+      writable: true,
+    });
     localStorage.setItem('theme', 'dark');
 
     const { result } = renderHook(() => useTheme());
 
-    expect(localStorage.getItem).toHaveBeenCalledWith('theme');
-    expect(result.current[0]).toBe('dark');
+    await waitFor(() => {
+      expect(localStorage.getItem).toHaveBeenCalledWith('theme');
+      expect(result.current[0]).toBe('dark');
+    });
   });
 
   it('sets default theme to light if no preferences found', () => {

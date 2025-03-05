@@ -1,25 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type ThemeType = 'light' | 'dark';
 
-const useTheme = (): [string, () => void, boolean] => {
-  const [themeLoading, setThemeLoading] = useState<boolean>(true);
-  const [theme, setTheme] = useState<ThemeType>(() => {
-    if (typeof window !== 'undefined') {
-      setThemeLoading(false);
-      return (localStorage.getItem('theme') ||
-        (window.matchMedia('(prefers-color-scheme: dark)').matches
-          ? 'dark'
-          : 'light')) as ThemeType;
-    }
+const useTheme = (): [ThemeType | null, () => void, boolean] => {
+  const [theme, setTheme] = useState<ThemeType | null>(null);
+  const [themeLoading, setThemeLoading] = useState(true);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') as ThemeType | null;
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
+      .matches
+      ? 'dark'
+      : 'light';
+
+    setTheme(savedTheme || systemTheme);
     setThemeLoading(false);
-    return 'light';
-  });
+  }, []);
 
   function toggleTheme() {
     const newTheme = theme === 'light' ? 'dark' : 'light';
 
-    document.documentElement.classList.remove(theme);
+    document.documentElement.classList.remove(theme!);
     document.documentElement.classList.add(newTheme);
 
     setTheme(newTheme);
