@@ -108,6 +108,11 @@ exports[`SignUpForm component renders to match snapshot 1`] = `
       <button
         class="absolute h-5 w-5 top-2 left-2 cursor-pointer"
       >
+        <span
+          class="sr-only"
+        >
+          show password
+        </span>
         <svg
           class=""
           data-testid="hide-password-icon"
@@ -154,6 +159,11 @@ exports[`SignUpForm component renders to match snapshot 1`] = `
       <button
         class="absolute h-5 w-5 top-2 left-2 cursor-pointer"
       >
+        <span
+          class="sr-only"
+        >
+          show repeat password
+        </span>
         <svg
           class=""
           data-testid="hide-password-icon"
@@ -198,9 +208,8 @@ exports[`SignUpForm component renders to match snapshot 1`] = `
       class="py-2 px-4 rounded-md font-quicksand font-bold text-gray-100 mr-auto bg-linear-to-tr from-blue-400 to-blue-600 w-full cursor-pointer"
       type="submit"
     >
-      Log in
+      Sign up
     </button>
-    <div />
     <div
       class="text-center"
     >
