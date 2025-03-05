@@ -108,7 +108,7 @@ const Note: React.FC<NoteProps> = ({ date }) => {
   }
 
   return (
-    <div className="bg-background dark:bg-background-dark rounded shadow-md p-5 max-h-[80lvh] min-w-[300px] max-w-[300px] md:max-w-[500px] w-min animate-slide-down">
+    <div className="bg-background dark:bg-background-dark rounded shadow-md p-5 max-h-[80lvh] min-w-[300px] max-w-[300px] md:max-w-[500px] w-min animate-slide-down overflow-x-hidden overflow-y-auto">
       <h4 className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600 font-bold font-kanit">
         {formatDate(date)}
       </h4>
@@ -123,7 +123,7 @@ const Note: React.FC<NoteProps> = ({ date }) => {
                 <textarea
                   id="note-to-update"
                   data-testid="note-to-update"
-                  className="p-1 border-2 border-gray-200 dark:border-gray-800 focus:outline-gray-400 dark:focus:outline-gray-600 text-sm dark:text-gray-200 tracking-wide min-w-[300px] resize-none"
+                  className="p-1 border-2 border-gray-200 dark:border-gray-800 focus:outline-gray-400 dark:focus:outline-gray-600 text-sm dark:text-gray-200 tracking-wide md:min-w-[300px] resize-none"
                   rows={1}
                   value={editValue}
                   onChange={handleEditChange}
@@ -147,7 +147,9 @@ const Note: React.FC<NoteProps> = ({ date }) => {
             </li>
           ) : (
             <li key={note.id} className="flex items-center gap-1">
-              <p className="text-left dark:text-gray-200 max-w-80 break-words" >{note.data}</p>
+              <p className="text-left dark:text-gray-200 max-w-80 break-words">
+                {note.data}
+              </p>
               <button
                 onClick={updateNote}
                 className="ml-auto pl-2 cursor-pointer"
@@ -176,7 +178,7 @@ const Note: React.FC<NoteProps> = ({ date }) => {
           New Note
         </label>
         <input
-          className="p-1 border-2 border-gray-200 dark:border-gray-800 focus:outline-gray-400 dark:focus:outline-gray-600 text-sm dark:text-gray-200 tracking-wide min-w-[300px]"
+          className="p-1 border-2 border-gray-200 dark:border-gray-800 focus:outline-gray-400 dark:focus:outline-gray-600 text-sm dark:text-gray-200 tracking-wide md:min-w-[300px]"
           type="text"
           id="newNote"
           name="newNote"

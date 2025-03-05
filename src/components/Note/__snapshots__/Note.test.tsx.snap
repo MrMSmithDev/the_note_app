@@ -3,7 +3,7 @@
 exports[`Note component renders correctly to match snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="bg-background dark:bg-background-dark rounded shadow-md p-5 max-h-[80lvh] min-w-[300px] max-w-[300px] md:max-w-[500px] w-min animate-slide-down"
+    class="bg-background dark:bg-background-dark rounded shadow-md p-5 max-h-[80lvh] min-w-[300px] max-w-[300px] md:max-w-[500px] w-min animate-slide-down overflow-x-hidden overflow-y-auto"
   >
     <h4
       class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600 font-bold font-kanit"
@@ -29,7 +29,7 @@ exports[`Note component renders correctly to match snapshot 1`] = `
         New Note
       </label>
       <input
-        class="p-1 border-2 border-gray-200 dark:border-gray-800 focus:outline-gray-400 dark:focus:outline-gray-600 text-sm dark:text-gray-200 tracking-wide min-w-[300px]"
+        class="p-1 border-2 border-gray-200 dark:border-gray-800 focus:outline-gray-400 dark:focus:outline-gray-600 text-sm dark:text-gray-200 tracking-wide md:min-w-[300px]"
         id="newNote"
         name="newNote"
         placeholder="New Note"
