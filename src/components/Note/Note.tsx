@@ -108,7 +108,7 @@ const Note: React.FC<NoteProps> = ({ date }) => {
   }
 
   return (
-    <div className="bg-background dark:bg-background-dark rounded shadow-md p-5 max-h-[80lvh] min-w-[300px] w-min animate-slide-down">
+    <div className="bg-background dark:bg-background-dark rounded shadow-md p-5 max-h-[80lvh] min-w-[300px] max-w-[300px] md:max-w-[500px] w-min animate-slide-down">
       <h4 className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600 font-bold font-kanit">
         {formatDate(date)}
       </h4>
@@ -147,7 +147,7 @@ const Note: React.FC<NoteProps> = ({ date }) => {
             </li>
           ) : (
             <li key={note.id} className="flex items-center gap-1">
-              <p className="text-left dark:text-gray-200">{note.data}</p>
+              <p className="text-left dark:text-gray-200 max-w-80 break-words" >{note.data}</p>
               <button
                 onClick={updateNote}
                 className="ml-auto pl-2 cursor-pointer"
