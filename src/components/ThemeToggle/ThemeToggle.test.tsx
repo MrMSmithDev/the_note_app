@@ -1,12 +1,15 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import ThemeToggle from './ThemeToggle';
 import useTheme from '@hooks/useTheme';
+jest.mock('@hooks/useTheme', () => require('@__mocks__/useTheme'));
 
-jest.mock('@hooks/useTheme');
+import { render, screen, fireEvent } from '@testing-library/react';
+import ThemeToggle from './ThemeToggle';
+
 
 describe('ThemeToggle component', () => {
+
   beforeEach(() => {
-    jest.resetAllMocks(); // Reset mocks before each test
+    jest.clearAllMocks();
+    jest.resetAllMocks();
   });
 
   it('renders correctly to match snapshot', () => {
@@ -16,14 +19,17 @@ describe('ThemeToggle component', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it('renders the opposite icon based on theme', async () => {
-    (useTheme as jest.Mock).mockReturnValue(['light', jest.fn()]);
+  it('renders the opposite icon based on theme - light', () => {
+    (useTheme as jest.Mock).mockReturnValueOnce(['light', jest.fn(), false]);
 
     render(<ThemeToggle />);
+
     expect(screen.getByTestId('dark-mode-icon')).toBeInTheDocument();
+  });
 
-    (useTheme as jest.Mock).mockReturnValueOnce(['dark', jest.fn()]);
-
+  it('renders the opposite icon based on theme - dark', () => {
+    (useTheme as jest.Mock).mockReturnValueOnce(['dark', jest.fn(), false]);
+    
     render(<ThemeToggle />);
 
     expect(screen.getByTestId('light-mode-icon')).toBeInTheDocument();
@@ -35,7 +41,7 @@ describe('ThemeToggle component', () => {
 
     render(<ThemeToggle />);
 
-    fireEvent.click(screen.getByRole('button')); // Simulate button click
+    fireEvent.click(screen.getByRole('button'));
 
     expect(mockToggleFunc).toHaveBeenCalled();
   });

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import DarkModeIcon from '@components/icons/DarkModeIcon';
-import LightModeIcon from '@components/icons/LightModeIcon';
+import { DarkModeIcon, LightModeIcon } from '@components/icons';
 import useTheme from '@hooks/useTheme';
 
 const ThemeToggle: React.FC = () => {
   const [theme, themeToggle, themeLoading] = useTheme();
-  const [icon, setIcon] = useState<string>('light');
+  const [icon, setIcon] = useState<'light' | 'dark'>(
+    theme === 'light' ? 'light' : 'dark'
+  );
 
   useEffect(() => {
     theme === 'light' ? setIcon('light') : setIcon('dark');
