@@ -82,7 +82,7 @@ const SignInForm: React.FC<SignInFormProps> = ({ closeForm, toggleForm }) => {
       </div>
       <button
         type="submit"
-        className="py-2 px-4 rounded-md font-quicksand font-bold text-gray-100 mr-auto bg-linear-to-tr from-blue-400 to-blue-600 w-full cursor-pointer"
+        className="py-2 px-4 rounded-md font-quicksand font-bold text-gray-100 mr-auto bg-linear-to-tr from-blue-400 to-blue-600 w-full cursor-pointer shadow"
         onClick={submitForm}
       >
         Log in

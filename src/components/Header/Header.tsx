@@ -39,7 +39,7 @@ const Header: React.FC = () => {
         )}
         <button
           ref={ref}
-          className="bg-blue-500 py-1 px-4 rounded-md font-quicksand font-bold text-gray-100 cursor-pointer hover:animate-jello"
+          className="bg-blue-500 py-1 px-4 rounded-md font-quicksand font-bold text-gray-100 cursor-pointer hover:animate-jello shadow"
           onClick={() => setSignInFormActive(true)}
         >
           Log in

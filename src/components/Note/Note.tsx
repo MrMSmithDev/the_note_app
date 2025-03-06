@@ -132,13 +132,13 @@ const Note: React.FC<NoteProps> = ({ date }) => {
                 <div className="flex gap-1 w-full">
                   <button
                     onClick={submitUpdateNote}
-                    className="py-2 px-4 rounded-md font-quicksand font-bold text-gray-100 mr-auto bg-linear-to-tr from-blue-400 to-blue-600 w-full md:w-max cursor-pointer disabled:opacity-50"
+                    className="py-2 px-4 rounded-md font-quicksand font-bold text-gray-100 mr-auto bg-linear-to-tr from-blue-400 to-blue-600 w-full md:w-max cursor-pointer disabled:opacity-50 shadow"
                   >
                     <span>Update</span>
                   </button>
                   <button
                     onClick={cancelUpdateNote}
-                    className="py-2 px-4 rounded-md font-quicksand font-bold text-gray-100 mr-auto bg-linear-to-tr from-red-400 to-red-600 w-full md:w-max cursor-pointer disabled:opacity-50"
+                    className="py-2 px-4 rounded-md font-quicksand font-bold text-gray-100 mr-auto bg-linear-to-tr from-red-400 to-red-600 w-full md:w-max cursor-pointer disabled:opacity-50 shadow"
                   >
                     <span>Cancel</span>
                   </button>
@@ -188,7 +188,7 @@ const Note: React.FC<NoteProps> = ({ date }) => {
         />
         <button
           onClick={createNote}
-          className="py-2 px-4 rounded-md font-quicksand font-bold text-gray-100 mr-auto bg-linear-to-tr from-blue-400 to-blue-600 w-full md:w-max cursor-pointer disabled:opacity-50"
+          className="py-2 px-4 rounded-md font-quicksand font-bold text-gray-100 mr-auto bg-linear-to-tr from-blue-400 to-blue-600 w-full md:w-max cursor-pointer disabled:opacity-50 shadow"
           disabled={!!editingNote}
         >
           <span>Add Note</span>

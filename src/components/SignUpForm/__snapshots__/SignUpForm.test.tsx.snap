@@ -205,7 +205,7 @@ exports[`SignUpForm component renders to match snapshot 1`] = `
       />
     </div>
     <button
-      class="py-2 px-4 rounded-md font-quicksand font-bold text-gray-100 mr-auto bg-linear-to-tr from-blue-400 to-blue-600 w-full cursor-pointer"
+      class="py-2 px-4 rounded-md font-quicksand font-bold text-gray-100 mr-auto bg-linear-to-tr from-blue-400 to-blue-600 w-full cursor-pointer shadow"
       type="submit"
     >
       Sign up

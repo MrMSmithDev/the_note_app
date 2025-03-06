@@ -14,7 +14,7 @@ exports[`Header component renders to match snapshot 1`] = `
       class="ml-auto my-auto"
     >
       <button
-        class="bg-blue-500 py-1 px-4 rounded-md font-quicksand font-bold text-gray-100 cursor-pointer hover:animate-jello"
+        class="bg-blue-500 py-1 px-4 rounded-md font-quicksand font-bold text-gray-100 cursor-pointer hover:animate-jello shadow"
       >
         Log in
       </button>
