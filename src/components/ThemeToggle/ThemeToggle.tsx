@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DarkModeIcon, LightModeIcon } from '@components/icons';
 import useTheme from '@hooks/useTheme';
 

@@ -2,7 +2,7 @@ import Date from '@components/Date';
 import { dayData } from '@utils/dateData';
 import daysInMonth from '@utils/daysInMonth';
 import firstDayInMonth from '@utils/firstDayInMonth';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import MonthType from 'src/types/MonthType';
 
 export interface MonthProps {

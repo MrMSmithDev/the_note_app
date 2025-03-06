@@ -1,4 +1,3 @@
-import React from 'react';
 import IconProps from 'src/types/IconProps';
 
 const EmailIcon: React.FC<IconProps> = ({ className = '' }) => {

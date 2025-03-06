@@ -1,5 +1,5 @@
 import { EmailIcon, HidePasswordIcon, ShowPasswordIcon, UserIcon } from '@components/icons';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export interface SignUpFormProps {
   closeForm: () => void;

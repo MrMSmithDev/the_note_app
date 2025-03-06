@@ -1,6 +1,6 @@
 import Modal from '@components/Modal';
 import Note from '@components/Note';
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import MonthType from 'src/types/MonthType';
 
 export interface DateProps {

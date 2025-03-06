@@ -2,7 +2,7 @@ import Modal from '@components/Modal';
 import SignInForm from '@components/SignInForm';
 import SignUpForm from '@components/SignUpForm';
 import ThemeToggle from '@components/ThemeToggle';
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 const Header: React.FC = () => {
   const [signInFormActive, setSignInFormActive] = useState(false);

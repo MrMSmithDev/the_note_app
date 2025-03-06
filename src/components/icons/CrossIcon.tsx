@@ -1,4 +1,3 @@
-import React from 'react';
 import IconProps from 'src/types/IconProps';
 
 interface CrossIconProps extends IconProps {

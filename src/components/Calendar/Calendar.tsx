@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Year from '@components/Year/';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocalStorage } from '@hooks/useLocalStorage';

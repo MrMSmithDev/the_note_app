@@ -1,6 +1,6 @@
 import { CrossIcon, EditIcon } from '@components/icons';
 import { useLocalStorage } from '@hooks/useLocalStorage';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import NoteType from 'src/types/Note';
 import { v4 as uuidV4 } from 'uuid';
 import formatDate from '@utils/formatDate';

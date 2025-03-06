@@ -1,4 +1,3 @@
-import React from 'react';
 import { monthsData } from '@utils/dateData';
 import MonthType from 'src/types/MonthType';
 import Month from '@components/Month';
