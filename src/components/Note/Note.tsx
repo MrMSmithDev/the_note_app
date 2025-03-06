@@ -108,7 +108,7 @@ const Note: React.FC<NoteProps> = ({ date }) => {
   }
 
   return (
-    <div className="bg-background dark:bg-background-dark rounded shadow-md p-5 max-h-[80lvh] min-w-[300px] max-w-[300px] md:max-w-[500px] w-min animate-slide-down overflow-x-hidden overflow-y-auto">
+    <div className="bg-background dark:bg-background-dark rounded shadow-md p-5 max-h-[60lvh] min-w-[300px] max-w-[300px] md:max-w-[500px] w-min animate-slide-down overflow-x-hidden overflow-y-auto">
       <h4 className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600 font-bold font-kanit">
         {formatDate(date)}
       </h4>
